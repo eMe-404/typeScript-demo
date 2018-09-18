@@ -1,0 +1,24 @@
+import * as React from 'react'
+import * as enzyme from 'enzyme'
+import Hello from './Hello';
+
+it('renders correct text when enthusiasm not given', () => {
+    const hello = enzyme.shallow(<Hello name='yaer' />)
+    expect(hello.find(".greeting").text()).toEqual('Hello yaer!')
+});
+
+it('renders the correct text with an explicit enthusiasm of 2', () => {
+    const hello = enzyme.shallow(<Hello name='Daniel' enthusiasmLevel={2} />);
+    expect(hello.find(".greeting").text()).toEqual('Hello Daniel!!')
+});
+
+it('renders the correct text with an explicit enthusiasm level of 5', () => {
+    const hello = enzyme.shallow(<Hello name='Daniel' enthusiasmLevel={5} />);
+    expect(hello.find(".greeting").text()).toEqual('Hello Daniel!!!!!');
+});
+
+it('throws when the enthusiasm level is negative', () => {
+    expect(() => {
+        enzyme.shallow(<Hello name='Daniel' enthusiasmLevel={-1} />);
+    }).toThrow();
+});

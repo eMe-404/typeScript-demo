@@ -1,4 +1,5 @@
 import * as React from 'react';
+import './Hello.css'
 
 export interface Props {
     name: string;
@@ -36,10 +37,10 @@ class Hello extends React.Component<Props, State> {
         return (
             <div className="hello">
                 <div className="greeting">
-                    <h1> Hello {name + getExclamationMarks(this.state.currentEnthusiasm)}</h1>
-                    <button onClick={this.onIncrement}>+</button>
-                    <button onClick={this.onDecrement}>-</button>
+                    Hello {name + getExclamationMarks(this.state.currentEnthusiasm)}
                 </div>
+                <button onClick={this.onIncrement}>+</button>
+                <button onClick={this.onDecrement}>-</button>
             </div>
         );
     }
